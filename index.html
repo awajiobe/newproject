@@ -8,7 +8,9 @@
     <title>Digital Clock</title>
 </head>
 <body>
-    <div id="digitalclock"></div>
+    <div id="digitalclock">
+        <h2>Digital Clock</h2>
+    </div>
 
     <script>
         function digitalTime() {
@@ -17,15 +19,17 @@
             let minute = date.getMinutes();
             let second = date.getSeconds();
             let timePeriod ="";
-            if (hour == 0) {
-                hour = 12;
-            } else if (hour > 12) {
-                   hour = hour - 12;
-                }
             if (hour >= 12) {
                 timePeriod = "PM";
             } else {
                 timePeriod = "AM";
+            }
+            if (hour == 0) {
+                hour = 12;
+            } else {
+                if (hour > 12) {
+                   hour = hour - 12;
+                }
             }
 
             hour = hour < 10 ? "0" + hour : hour;
